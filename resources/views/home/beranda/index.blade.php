@@ -81,7 +81,7 @@
                 <div class="text-center">
                     <i class="{{$item->icon}}"></i>
                     <h5><b>{{ $item->title }}</b></h5>
-                    <p>{{ $item->desc }}</p>
+                    <p>{{ $item->desc ?? ''}}</p>
                 </div>
             </div>
         @endforeach
@@ -100,13 +100,13 @@
             <div class="col-md-3">
                 <div class="card shadow-sm">
                     <div class="wrapper-card-blog">
-                        <img src="/{{ $item->cover }}" class="img-card-blog" alt="">
+                        <img src="/{{ $item->cover ?? ''}}" class="img-card-blog" alt="">
                     </div>
                     <div class="p-3">
-                        <a href="" class="text-decoration-none"><h5>{{ $item->title }}</h5></a>
-                        <p>{!! Illuminate\Support\Str::limit($item->body, 50) !!}</p>
+                        <a href="" class="text-decoration-none"><h5>{{ $item->title ?? '' }}</h5></a>
+                        <p>{!! Illuminate\Support\Str::limit($item->body ?? '', 50) !!}</p>
                     </div>
-                    <a href="/blog/show/{{ $item->id }}" class="btn btn-success">Selengkapnya</a>
+                    <a href="/blog/show/{{ $item->id ?? ''}}" class="btn btn-success">Selengkapnya</a>
                 </div>
             </div>
         @endforeach
