@@ -82,7 +82,7 @@
                 <div class="text-center">
                     <i class="{{$item->icon}}"></i>
                     <h5><b>{{ $item->title }}</b></h5>
-                    <p>{{ $item->desc}}</p>
+                    <p>{{ $item->desc ?? ''}}</p>
                 </div>
             </div>
         @endforeach
