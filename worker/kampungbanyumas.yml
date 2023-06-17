@@ -1,0 +1,11 @@
+apps:
+  - name: kampungbanyumas
+    interpreter: php
+    script: artisan
+    exec_mode: fork
+    instances: 1
+    args:
+      - queue:work
+      - --queue=high,medium,low
+      - --tries=3
+      - --sleep=1
