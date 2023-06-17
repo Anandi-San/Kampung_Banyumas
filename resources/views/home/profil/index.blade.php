@@ -22,11 +22,19 @@
 <div class="container py-3">
     <div class="row align-items-center">
         <div class="col-md-4">
+        @if ($profil && $profil->cover)
         <img src="/{{$profil->cover}}"width="100%" alt="">
+        @else
+        <p>No cover image available</p>
+        @endif
         </div>
         <div class="col-md-8">
             <!-- belum buka summernote -->
-            <p>{!! $profil->desc !!}</p>
+            @if ($profil && $profil->desc)
+                <p>{!! $profil->desc !!}</p>
+            @else
+                <p>No description available</p>
+            @endif
         </div>
         <div class="container my-4">
             <h3 class="text-center">VISI MISI</h3>

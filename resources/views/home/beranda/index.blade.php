@@ -52,7 +52,7 @@
             <img src="/{{ $profil->cover }}" width="100%" class="img-tentang-desa" alt="">
             @endif
         </div>
-        <div class="col-md-6">\
+        <div class="col-md-6">
             @if ($desc)
             <p>
             {!! $profil->desc !!}
