@@ -48,7 +48,9 @@
     </div>
     <div class="row align-items-center">
         <div class="col-md-6">
+            @if ($profil)
             <img src="/{{ $profil->cover }}" width="100%" class="img-tentang-desa" alt="">
+            @endif
         </div>
         <div class="col-md-6">
             <p>
