@@ -16,22 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-    //    User::create([
-    //         'name'=> 'Anandi',
-    //         'email' => 'anandi@gmail.com',
-    //         'password'=> bcrypt('12345678'),
-    //         're_password' => '12345678',
-    //    ]);
 
-    // Profil::update([
-    //     'name' => 'Desa Banyuwangi',
-    //     'desc' => 'desa Banywangi'
-    // ]);
-
-    Profil::create([
-        'name'=> 'Kampung Banyumas',
-        'desc'=> 'kampung Banyumas',
-        'cover' => 'uploads/banner/1686159578-IMG_4769.png'
+    Profil::where('id', 1)->update([
+        'name' => 'Kampung Banyumas',
+        'desc' => 'Kampung Banyumas Balikpapan',
+        'cover' => 'uploads/banners/1686159578-IMG_4769.png'
     ]);
     }
 }
