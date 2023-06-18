@@ -53,7 +53,7 @@
             @endif
         </div>
         <div class="col-md-6">
-            @if ($desc)
+            @if ($profil && $profil->desc)
             <p>
             {!! $profil->desc !!}
             </p>
