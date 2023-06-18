@@ -17,36 +17,73 @@ class AdminProfilController extends Controller
         ];
         return view('admin.layout.wrapper', $data);
     }
-    
-    public function update(Request $request)
+
+    // public function create()
+    // {
+    //     $data = [
+    //         'name'=> ''
+    //     ]
+    // }
+
+    public function store(Request $request)
     {
-        //
-        $profil = Profil::first();
         $data = $request->validate([
-            'name'=> 'required',
-            'desc'=> 'required',
-            // 'cover'=> 'required',
-            // 'cover'=> 'required',
+            'name' => 'required',
+            'desc' => 'required',
+            'cover' => 'required|file', // Add file validation rule
         ]);
-
-
-        if($request->hasFile('cover')){
-
-            if($profil->cover != null){
+    
+        $profil = Profil::find(1); // Assuming you are fetching a specific profile using find() method, adjust as needed
+    
+        if ($request->hasFile('cover')) {
+            if ($profil->cover != null) {
+                // Delete the previous cover file if it exists
                 unlink($profil->cover);
             }
-
-
+    
             $cover = $request->file('cover');
-            $file_name = time(). '-'. $cover->getClientOriginalName();
+            $file_name = time() . '-' . $cover->getClientOriginalName();
             $storage = 'uploads/banners/';
             $cover->move($storage, $file_name);
             $data['cover'] = $storage . $file_name;
-        }else{
+        } else {
             $data['cover'] = $profil->cover;
         }
-
-        $profil->update($data);
+    
+        Profil::create($data);
         return redirect('/admin/profil');
     }
-}
+    
+     
+        public function update(Request $request)
+        {
+            //
+            $profil = Profil::first();
+            $data = $request->validate([
+                'name'=> 'required',
+                'desc'=> 'required',
+                // 'cover'=> 'required',
+                // 'cover'=> 'required',
+            ]);
+    
+    
+            if($request->hasFile('cover')){
+    
+                if($profil->cover != null){
+                    unlink($profil->cover);
+                }
+    
+    
+                $cover = $request->file('cover');
+                $file_name = time(). '-'. $cover->getClientOriginalName();
+                $storage = 'uploads/banners/';
+                $cover->move($storage, $file_name);
+                $data['cover'] = $storage . $file_name;
+            }else{
+                $data['cover'] = $profil->cover;
+            }
+    
+            $profil->update($data);
+            return redirect('/admin/profil');
+        }
+    }

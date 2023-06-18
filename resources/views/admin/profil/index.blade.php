@@ -40,11 +40,11 @@
                     
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="">Deskripsi</label>
-                            <textarea name="desc" id="summernote" cols="30" rows="10" class="form-control @error ('desc') is-invalid @enderror">{{$profil->desc}}</textarea>
-                             @error('desc')
+                            <label for="desc">Deskripsi</label>
+                            <textarea name="desc" id="summernote" cols="30" rows="10" class="form-control @error('desc') is-invalid @enderror">{{ $profil->desc }}</textarea>
+                            @error('desc')
                                 <div class="invalid-feedback">
-                                     {{ $message }}
+                                    {{ $message }}
                                 </div>
                             @enderror
                         </div>

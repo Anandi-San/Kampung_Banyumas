@@ -51,6 +51,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index']);
 
     Route::get('/profil', [AdminProfilController::class, 'index']);
+    Route::post('/profil', [AdminProfilController::class, 'store']);
     Route::put('/profil/update', [AdminProfilController::class, 'update']);
 
     Route::resource('/posts/blog', AdminBlogController::class);

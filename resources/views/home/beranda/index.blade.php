@@ -76,7 +76,6 @@
         <h4 class="">Potensi Kami</h4>
     </div>
     <div class="row">
-        @if ($desc)
         @foreach ($potensi as $item)
             <div class="col-md-3">
                 <div class="text-center">
@@ -86,7 +85,6 @@
                 </div>
             </div>
         @endforeach
-        @endif
     </div>
     <div class="text-center mt-3">
         <a href="/potensi" class="btn btn-success px-5 text-center">Selengkapnya</a>
